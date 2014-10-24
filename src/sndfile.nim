@@ -3,7 +3,7 @@ when defined(windows):
 elif defined(macosx):
     const soname = "libsndfile.dylib"
 else:
-    const soname = "libsndfile.so"
+    const soname = "libsndfile.so(|.1)"
 
 {.pragma: libsnd, cdecl, dynlib: soname.}
 
@@ -44,8 +44,13 @@ proc seek*(sndfile: ptr TSNDFILE, frames: TCOUNT, whence: TWHENCE): TCOUNT {.lib
 
 proc read_int*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cint, items: TCOUNT): TCOUNT {.libsnd, importc: "sf_read_int".}
 
+proc readf_short*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cshort, frames: TCOUNT): TCOUNT {.libsnd, importc: "sf_readf_short".}
+
 proc read_float*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cfloat, items: TCOUNT): TCOUNT {.libsnd, importc: "sf_read_float".}
 
+proc error*(sndfile: ptr TSNDFILE): cint {.libsnd, importc: "sf_error".}
+
+proc strerror*(sndfile: ptr TSNDFILE): cstring {.libsnd, importc: "sf_strerror".}
 
 
 when isMainModule:
