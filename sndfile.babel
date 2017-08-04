@@ -1,5 +1,5 @@
 [Package]
-name: "nim-sndfile"
+name: "sndfile"
 version: "0.1.0"
 author: "Julien Aubert"
 description: "Wrapper for libsndfile"
