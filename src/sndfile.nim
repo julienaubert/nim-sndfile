@@ -84,7 +84,7 @@ type
 
 proc open*(path: cstring, mode: TFILE_MODE, sfinfo: ptr TINFO): ptr TSNDFILE  {.libsnd, importc: "sf_open".}
 
-proc close*(sndfile: ptr TSNDFILE)  {.libsnd, importc: "sf_close".}
+proc close*(sndfile: ptr TSNDFILE): ptr TSNDFILE {.libsnd, importc: "sf_close".}
 
 proc format_check*(info: ptr TINFO): TBOOL {.libsnd, importc: "sf_format_check".}
 
