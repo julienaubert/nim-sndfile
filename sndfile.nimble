@@ -4,3 +4,5 @@ description   = "sndfile"
 license       = "MIT"
 
 requires "nim >= 1.0.6"
+
+srcDir = "src"
