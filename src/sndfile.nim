@@ -157,6 +157,7 @@ type
     # because nim enums don't allow duplicate values
     SF_FORMAT_ENDMASK      = 0x30000000
 
+
 proc open*(path: cstring, mode: TFILE_MODE, sfinfo: ptr TINFO): ptr TSNDFILE  {.libsnd, importc: "sf_open".}
 
 proc close*(sndfile: ptr TSNDFILE): ptr TSNDFILE {.libsnd, importc: "sf_close".}
@@ -181,4 +182,12 @@ proc readf_int*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cint, items: TCOUNT): TCO
 proc readf_float*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cfloat, items: TCOUNT): TCOUNT {.libsnd, importc: "sf_readf_float".}
 proc readf_double*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cdouble, items: TCOUNT): TCOUNT {.libsnd, importc: "sf_readf_double".}
 
+proc write_short*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cshort; items: TCOUNT): TCOUNT {.libsnd, importc: "sf_write_short".}
+proc write_int*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cint; items: TCOUNT): TCOUNT {.libsnd, importc: "sf_write_int".}
+proc write_float*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cfloat; items: TCOUNT): TCOUNT {.libsnd, importc: "sf_write_float".}
+proc write_double*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cdouble; items: TCOUNT): TCOUNT {.libsnd, importc: "sf_write_double".}
 
+proc writef_short*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cshort; items: TCOUNT): TCOUNT {.libsnd, importc: "sf_writef_short".}
+proc writef_int*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cint; items: TCOUNT): TCOUNT {.libsnd, importc: "sf_writef_int".}
+proc writef_float*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cfloat; items: TCOUNT): TCOUNT {.libsnd, importc: "sf_writef_float".}
+proc writef_double*(sndfile: ptr TSNDFILE, buffer_ptr: ptr cdouble; items: TCOUNT): TCOUNT {.libsnd, importc: "sf_writef_double".}
