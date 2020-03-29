@@ -6,3 +6,4 @@ license       = "MIT"
 requires "nim >= 1.0.6"
 
 skipDirs = @["examples"]
+srcDir = "src"
